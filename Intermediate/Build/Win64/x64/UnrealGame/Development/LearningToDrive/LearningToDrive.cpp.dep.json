@@ -1,0 +1,13 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "d:\\unreal engine\\projects\\learningtodrive\\intermediate\\source\\learningtodrive.cpp",
+        "ProvidedModule": "",
+        "PCH": "d:\\unreal engine\\projects\\learningtodrive\\intermediate\\build\\win64\\x64\\learningtodrive\\development\\core\\sharedpch.core.project.valapi.cpp20.h.pch",
+        "Includes": [
+            "d:\\unreal engine\\projects\\learningtodrive\\intermediate\\build\\win64\\x64\\unrealgame\\development\\learningtodrive\\definitions.learningtodrive.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

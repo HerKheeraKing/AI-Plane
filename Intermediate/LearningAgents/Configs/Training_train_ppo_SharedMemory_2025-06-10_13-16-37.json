@@ -1,0 +1,243 @@
+{
+	"TaskName": "Training",
+	"TrainerMethod": "PPO",
+	"TimeStamp": "2025-06-10_13-16-37",
+	"Networks": [
+		{
+			"Id": 0,
+			"Name": "DA_SportsCarPolicy",
+			"MaxByteNum": 488496
+		},
+		{
+			"Id": 1,
+			"Name": "DA_SportsCarCritic",
+			"MaxByteNum": 123160,
+			"InputSchemaId": 0
+		},
+		{
+			"Id": 2,
+			"Name": "DA_SportsCarEncoder",
+			"MaxByteNum": 676,
+			"InputSchemaId": 0
+		},
+		{
+			"Id": 3,
+			"Name": "DA_SportsCarDecoder",
+			"MaxByteNum": 416,
+			"OutputSchemaId": 0
+		}
+	],
+	"ReplayBuffers": [
+		{
+			"Id": 0,
+			"MaxEpisodeNum": 1000,
+			"MaxStepNum": 10000,
+			"HasCompletions": true,
+			"HasFinalObservations": true,
+			"HasFinalMemoryStates": true,
+			"Observations": [
+				{
+					"Id": 0,
+					"Name": "Observations",
+					"SchemaId": 0,
+					"VectorDimensionNum": 45
+				}
+			],
+			"Actions": [
+				{
+					"Id": 0,
+					"Name": "Actions",
+					"SchemaId": 0,
+					"VectorDimensionNum": 2
+				}
+			],
+			"MemoryStates": [
+				{
+					"Id": 0,
+					"Name": "MemoryStates",
+					"VectorDimensionNum": 64
+				}
+			],
+			"Rewards": [
+				{
+					"Id": 0,
+					"Name": "Rewards",
+					"VectorDimensionNum": 1
+				}
+			]
+		}
+	],
+	"Schemas":
+	{
+		"Observations": [
+			{
+				"Id": 0,
+				"Name": "Default",
+				"Schema":
+				{
+					"VectorSize": 45,
+					"EncodedSize": 45,
+					"Type": "And",
+					"Elements":
+					{
+						"Car":
+						{
+							"VectorSize": 3,
+							"EncodedSize": 3,
+							"Type": "Continuous",
+							"Num": 3,
+							"Index": 0
+						},
+						"Track":
+						{
+							"VectorSize": 42,
+							"EncodedSize": 42,
+							"Type": "Array",
+							"Num": 7,
+							"Element":
+							{
+								"VectorSize": 6,
+								"EncodedSize": 6,
+								"Type": "And",
+								"Elements":
+								{
+									"Direction":
+									{
+										"VectorSize": 3,
+										"EncodedSize": 3,
+										"Type": "Continuous",
+										"Num": 3,
+										"Index": 0
+									},
+									"Location":
+									{
+										"VectorSize": 3,
+										"EncodedSize": 3,
+										"Type": "Continuous",
+										"Num": 3,
+										"Index": 1
+									}
+								}
+							},
+							"Index": 1
+						}
+					}
+				}
+			}
+		],
+		"Actions": [
+			{
+				"Id": 0,
+				"Name": "Default",
+				"Schema":
+				{
+					"VectorSize": 2,
+					"DistributionSize": 4,
+					"EncodedSize": 4,
+					"Type": "And",
+					"Elements":
+					{
+						"Steering":
+						{
+							"VectorSize": 1,
+							"DistributionSize": 2,
+							"EncodedSize": 2,
+							"Type": "Continuous",
+							"Num": 1,
+							"Index": 0
+						},
+						"ThrottleBrake":
+						{
+							"VectorSize": 1,
+							"DistributionSize": 2,
+							"EncodedSize": 2,
+							"Type": "Continuous",
+							"Num": 1,
+							"Index": 1
+						}
+					}
+				}
+			}
+		]
+	},
+	"PPOSettings":
+	{
+		"IterationNum": 1000000,
+		"LearningRatePolicy": 9.9999997473787516e-05,
+		"LearningRateCritic": 0.0010000000474974513,
+		"LearningRateDecay": 1,
+		"WeightDecay": 9.9999997473787516e-05,
+		"PolicyBatchSize": 1024,
+		"CriticBatchSize": 4096,
+		"PolicyWindow": 16,
+		"IterationsPerGather": 32,
+		"CriticWarmupIterations": 8,
+		"EpsilonClip": 0.20000000298023224,
+		"ActionSurrogateWeight": 1,
+		"ActionRegularizationWeight": 0.0010000000474974513,
+		"ActionEntropyWeight": 0,
+		"ReturnRegularizationWeight": 9.9999997473787516e-05,
+		"GaeLambda": 0.94999998807907104,
+		"AdvantageNormalization": true,
+		"AdvantageMin": 0,
+		"AdvantageMax": 10,
+		"UseGradNormMaxClipping": false,
+		"GradNormMax": 0.5,
+		"TrimEpisodeStartStepNum": 0,
+		"TrimEpisodeEndStepNum": 0,
+		"Seed": 1234,
+		"DiscountFactor": 0.99000000953674316,
+		"Device": "GPU",
+		"UseTensorBoard": true,
+		"SaveSnapshots": true
+	},
+	"IntermediatePath": "D:/Unreal Engine/Projects/LearningToDrive/Intermediate/LearningAgents",
+	"LoggingEnabled": true,
+	"SharedMemory":
+	{
+		"ProcessNum": 1,
+		"NetworkGuids": [
+			{
+				"NetworkId": 0,
+				"Guid": "{16BAA364-4698-4C5A-D1EC-3787A7421037}"
+			},
+			{
+				"NetworkId": 1,
+				"Guid": "{DE603F37-4472-EA45-B341-B4AE34D5A797}"
+			},
+			{
+				"NetworkId": 2,
+				"Guid": "{2AF7D081-479A-D121-B0FD-708A383DB086}"
+			},
+			{
+				"NetworkId": 3,
+				"Guid": "{91B63BB4-4FDB-B6B6-E48E-BF9504E34F63}"
+			}
+		],
+		"ReplayBuffers": [
+			{
+				"EpisodeStartsGuid": "{C17BB182-4EEE-C37B-0793-4D9F461799C4}",
+				"EpisodeLengthsGuid": "{8EF3C243-438B-EAFA-6DEF-1BBA34DBD85C}",
+				"EpisodeCompletionModesGuid": "{098CBD1A-4747-EEF5-35C8-5AB8435475D2}",
+				"EpisodeFinalObservationsGuids": [
+					"{A952AC85-4E5B-958E-86A7-5BA23E18EBE7}"
+				],
+				"EpisodeFinalMemoryStatesGuids": [
+					"{438CE201-4D41-41E0-0321-DF9B8F25AC34}"
+				],
+				"ObservationsGuids": [
+					"{6DEEB321-499A-077D-EE19-B6AC3BBA6636}"
+				],
+				"ActionsGuids": [
+					"{A6A3F66F-4070-1B7C-6549-0383D08097B0}"
+				],
+				"MemoryStatesGuids": [
+					"{B289E03F-4757-505F-EB21-F686167A8052}"
+				],
+				"RewardsGuids": [
+					"{8306B7E4-4112-52A1-3971-33A771ABBF3C}"
+				]
+			}
+		]
+	}
+}
