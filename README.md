@@ -9,11 +9,38 @@
 This project was developed as part of a long-standing, collaborative simulation effort. While the aircraft physics and core flight logic were pre-existing, my contribution focused on building the AI agent framework within Unreal Engine. I worked on integrating reinforcement learning workflows, agent control structures, and training logic, and proposed the addition of AI-assisted flight behavior to the simulation. After my phase, the project was passed on to the next group for continued development.
 </em></p>
 
+<div align="center">
+  <img 
+    src="https://github.com/user-attachments/assets/2641c547-29c5-4129-84d9-65b641fb45c2" 
+    width="400" 
+    alt="Aircraft"
+  />
+</div>
+
 
 <br><br>
 
 # How it works:
-TBA
+**⚙️Phase 1 — Learning Agents Framework (Unreal Engine 5.3)** </p>
+This project began by following Unreal Engine’s Learning Agents tutorials to understand how reinforcement learning agents are structured, trained, and evaluated within Unreal. Using the vehicle template, I worked with a pre-built physics system to focus on the AI framework rather than low-level vehicle dynamics.
+During this phase, I implemented the core Learning Agents pipeline in Blueprints, including the training manager, agent registration, observation collection, action handling, reward shaping, and episode completion logic.
+
+**🧠Phase 2 — Agent Observation, Actions, and Rewards** </p>
+I designed the agent’s observation space to capture position, direction, velocity, and alignment relative to a spline-based track. Actions were mapped to throttle, brake, and steering inputs in real time.
+Reward functions were structured to encourage staying centered on the track, maintaining forward alignment, and increasing speed, while penalizing off-track behavior. Episode termination and reset logic ensured consistent training cycles.
+
+**📈Phase 3 — Training & Policy Integration** </p>
+Policies and trainers were configured using Unreal’s Learning Agents system, including PPO-based training parameters such as learning rate, batch size, episode length, and environment timing. Neural network assets were integrated through Blueprint-driven training workflows, with logging and checkpoint paths configured for experimentation.
+
+**🔄Phase 4 — Migration to Unreal Engine 5.5 & Flight Simulation Integration** </p>
+The Learning Agents framework was later migrated from Unreal Engine 5.3 to 5.5 to support integration with a pre-built 6DOF flight simulator. This required resolving Blueprint incompatibilities and adapting agent, trainer, and policy logic due to engine-level changes between versions.
+This phase focused on transferring the AI control framework from a ground vehicle to an aircraft context, enabling AI-assisted flight behavior within a more complex simulation environment.
+
+**✅Phase 5 — Evaluation & Experimentation** </p>
+Training runs were tested and evaluated within Unreal, and TensorBoard logging was explored to visualize learning progress, though deep optimization was outside the project’s scope.
+
+**📟UI & Data Integration** </p>
+Contributed Blueprint logic to extract live flight and simulation data directly from the aircraft systems and route it into Unreal Engine UI elements for real-time visualization during user-controlled flight.
 
 Tools: Unreal Engine 5.5, Unreal Learning Agents, Reinforcement Learning (RL), Blueprints, Behavior Trees, Git/GitHub
 <br><br>
@@ -49,6 +76,17 @@ Then run:
 ```bash
 git lfs install
 ```
+
+<br><br><br>
+## Explore my 6-DOF motion simulator repo to see how the flight platform is built and how a mini version can be replicated - Click Image To Access Repo 
+
+<a href="https://github.com/HerKheeraKing/6-DOF">
+  <img 
+    src="https://github.com/user-attachments/assets/50600c9e-af3f-4b49-ab03-23e5a561e88f" 
+    width="250" 
+    alt="6-DOF Thumbnail"
+  />
+</a>
 
 
 <br><br><br>
